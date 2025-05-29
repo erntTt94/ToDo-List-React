@@ -1,0 +1,220 @@
+:root {
+  --fw-400: 400;
+  --fw-700: 700;
+  --bg: hsl(0, 0%, 98%);
+  --text: hsl(235, 19%, 35%);
+  --subt: hsl(236, 33%, 92%);
+  --border-col: hsl(0, 0%, 98%);
+  --accent-dk: hsl(236, 33%, 92%);
+  --accent: hsl(220, 98%, 61%);
+}
+
+.dark {
+  --bg: hsl(235, 21%, 11%);
+  --text: hsl(234, 39%, 85%);
+  --subt: hsl(236, 33%, 92%);
+  --border-col: hsl(235, 24%, 19%);
+  --accent-dk: hsl(240, 0%, 59%);
+  --accent: hsl(192, 100%, 67%);
+  background-image: url(/public/images/bg-desktop-dark.jpg);
+}
+
+/* reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  background-image: url(/public/images/bg-desktop-light.jpg);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
+  color: var(--subt);
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+  background-color: var(--bg);
+}
+
+.container {
+  width: 100%;
+  min-width: 35vw;
+}
+
+.header {
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.theme-toggle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.todo-input {
+  width: 100%;
+  padding: 1.3rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--border-col);
+  color: var(--text);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.todo-input::placeholder {
+  color: var(--text);
+  opacity: 0.7;
+  font-weight: var(--fw-400);
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.todo-list {
+  list-style: none;
+  background-color: var(--border-col);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin: 1rem 0 0 0;
+  padding: 1rem 0;
+}
+
+.todo-item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  border-bottom: 1px solid var(--accent-dk);
+  background-color: var(--border-col);
+  padding: 0.8rem;
+  color: var(--text);
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.2rem;
+  position: relative;
+}
+
+.todo-item button {
+  border-radius: 50%;
+  padding: 0.7rem;
+  border: 1.4px rgba(122, 122, 122, 0.142) solid;
+  background-color: inherit;
+}
+
+.todo-item button.checked {
+  background: linear-gradient(
+    to bottom,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+  border: none;
+  padding: 0.5rem;
+}
+
+.todo-item .completed {
+  text-decoration: line-through;
+  color: var(--subt);
+}
+
+.todo-item .btn-d {
+  position: absolute;
+  right: 1rem;
+  border: 0;
+}
+
+.filters {
+  display: flex;
+  background-color: var(--border-col);
+  align-items: center;
+  padding: 1rem;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom: 1px solid var(--border-col);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  justify-content: space-between;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.filters span {
+  color: var(--text);
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.filters .btn-delete {
+  border: none;
+  background-color: inherit;
+  font-family: inherit;
+  color: var(--text);
+  opacity: 0.7;
+  cursor: pointer;
+  font-weight: var(--fw-400);
+}
+
+.filters div {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filters div button {
+  background-color: inherit;
+  font-family: inherit;
+  border: none;
+  color: var(--text);
+  opacity: 0.7;
+  font-weight: var(--fw-700);
+  cursor: pointer;
+}
+
+.filters div .active {
+  color: var(--accent);
+}
+
+@media (max-width: 430px) {
+  html {
+    font-size: 0.7rem;
+  }
+
+  body {
+    background-image: url(/public/images/bg-mobile-light.jpg);
+    padding: 0 2rem;
+  }
+
+  .dark {
+    background-image: url(/public/images/bg-mobile-dark.jpg);
+  }
+
+  .filters {
+    flex-wrap: wrap;
+  }
+
+  .filters div {
+    order: 3;
+    margin-top: 2rem;
+    margin: 2rem auto;
+  }
+}
